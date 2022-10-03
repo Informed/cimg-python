@@ -8,7 +8,7 @@ LABEL maintainer="Community/Partner Engineering <community-partner@circleci.com>
 
 ENV PYENV_ROOT=/home/circleci/.pyenv \
 	PATH=/home/circleci/.pyenv/shims:/home/circleci/.pyenv/bin:/home/circleci/.poetry/bin:$PATH \
-	PYTHON_VERSION=3.8.14
+	PYTHON_VERSION=3.8.13
 
 RUN sudo apt-get update && sudo apt-get install -y \
 		build-essential \
@@ -35,7 +35,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
 	curl https://pyenv.run | bash && \
 	sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN env PYTHON_CONFIGURE_OPTS="--enable-shared --enable-optimizations" pyenv install 3.8.14 && pyenv global 3.8.14
+RUN env PYTHON_CONFIGURE_OPTS="--enable-shared --enable-optimizations" pyenv install 3.8.13 && pyenv global 3.8.13
 
 RUN python --version && \
 	pip --version && \
