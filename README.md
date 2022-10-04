@@ -4,7 +4,8 @@
 		<img alt="Docker Logo" src="https://raw.github.com/CircleCI-Public/cimg-python/master/img/circle-docker.svg?sanitize=true" width="75" />
 		<img alt="Python Logo" src="https://raw.github.com/CircleCI-Public/cimg-python/master/img/circle-python.svg?sanitize=true" width="75" />
 	</p>
-	<h1>CircleCI Convenience Images => Python</h1>
+	<h1>CUSTOMIZED FOR INFORMED: <br/>
+  CircleCI Convenience Images => Python</h1>
 	<h3>A Continuous Integration focused Python Docker image built to run on CircleCI</h3>
 </div>
 
