@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM  --platform=linux/amd64 rberger/python:3.8.13
+FROM --platform=linux/amd64 informed/python:3.8.13
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
