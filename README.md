@@ -158,6 +158,24 @@ For example, to generate the Dockerfile for Python v3.7.7, you would run the fol
 ./shared/gen-dockerfiles.sh 3.7.7
 ```
 
+_Informed Enhancement_
+You can optionally specify an alternate registry instead of Docker Hub, such as an AWS ECR Repository:
+
+``` bash
+./shared/gen-dockerfiles.sh 3.8.13 <aws account id>.dkr.ecr.us-west-2.amazonaws.com
+```
+
+_Informed Enhancement_
+New behavior is that this command will not by default generate commands or Dockerfiles for Variants specified in the `nanifest` file. 
+
+If yo want the variants to be generated add the `-a` or `--variants` flag as the first argument
+
+``` bash
+./shared/gen-dockerfiles.sh -a 3.8.13 <aws account id>.dkr.ecr.us-west-2.amazonaws.com
+# or
+./shared/gen-dockerfiles.sh --variants 3.8.13 <aws account id>.dkr.ecr.us-west-2.amazonaws.com
+```
+
 The generated Dockerfile will be located at `./3.7/Dockefile`.
 To build this image locally and try it out, you can run the following:
 
@@ -178,6 +196,21 @@ To build the Docker images locally as this repository does, you'll want to run t
 This would need to be run after generating the Dockerfiles first.
 When releasing proper images for CircleCI, this script is run from a CircleCI pipeline and not locally.
 
+### Push to remote repository
+
+If you did not specify an alternate repository when you ran the `gen-dockerfiles.sh script`, by default it will try to push to Docker Hub. It assumes you have set up a login for that already. 
+
+If you are pushing to an ECR Repository you will have to do the aws ecr login (assumes you have set up your aws credentials thru SSO or the normal CLI credential mechanisms):
+
+``` bash
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin <aws account id>.dkr.ecr.us-west-2.amazonaws.com
+```
+
+Then for any case run the `push-images script`:
+
+``` bash
+./push-images.sh
+```
 
 ### Submitting a Pull Request
 

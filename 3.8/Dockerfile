@@ -46,3 +46,6 @@ RUN python --version && \
 
 # This installs version poetry at the latest version. poetry is updated about twice a month.
 RUN curl -sSL https://install.python-poetry.org | python -
+
+# This installs the poetry-dynamic-versioning plugin
+RUN poetry self add "poetry-dynamic-versioning[plugin]"
